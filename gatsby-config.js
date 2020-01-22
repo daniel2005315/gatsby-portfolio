@@ -38,6 +38,7 @@ const plugins = [
 ];
 
 module.exports = client.getEntries().then(entries => {
+  /* Not using medium
   const { mediumUser } = entries.items.find(getAboutEntry).fields;
 
   plugins.push({
@@ -46,6 +47,7 @@ module.exports = client.getEntries().then(entries => {
       username: mediumUser || '@medium',
     },
   });
+  */
 
   if (ANALYTICS_ID) {
     plugins.push({
@@ -58,7 +60,7 @@ module.exports = client.getEntries().then(entries => {
 
   return {
     siteMetadata: {
-      isMediumUserDefined: !!mediumUser,
+      // isMediumUserDefined: !!mediumUser,
       deterministicBehaviour: !!DETERMINISTIC,
     },
     plugins,

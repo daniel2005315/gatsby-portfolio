@@ -44,11 +44,11 @@ const Footer = () => (
       const { name, socialLinks } = data.contentfulAbout;
 
       return (
-        <Box p={3} backgroundColor="primaryDark" as="footer">
+        <Box p={3} backgroundColor="backgroundDark" as="footer">
           <FooterContainer>
             <Fade left>
-              <TextFooter fontSize={[2, 3]}>
-                <span>{`${name} Portfolio - Powered by `}</span>
+              <TextFooter fontSize={[2, 3]} color="white">
+                <span>2020 {`${name}'s Portfolio - Powered by `}</span>
                 <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
                 <span> and </span>
                 <Link href="https://www.contentful.com/" mr={1}>
@@ -63,7 +63,7 @@ const Footer = () => (
               <Fade right>
                 {socialLinks.map(({ id, ...rest }) => (
                   <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
-                    <SocialLink {...rest} color="background" />
+                    <SocialLink {...rest} color="white" />
                   </Box>
                 ))}
               </Fade>

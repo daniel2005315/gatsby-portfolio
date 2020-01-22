@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
     font-display: fallback;
     overflow-x: hidden;
+    min-height: 100%;
   }
 `;
 

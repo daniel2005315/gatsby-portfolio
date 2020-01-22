@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Headroom from 'react-headroom';
-import { Flex, Image } from 'rebass';
+import { Flex, Image , Border} from 'rebass';
 import styled from 'styled-components';
 import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
@@ -57,7 +57,7 @@ const Header = () => (
                 style={{
                   cursor: 'pointer',
                 }}
-              />
+              />              
             );
             const navLinks = links.map(({ name, value }) => (
               <RouteLink
@@ -71,6 +71,7 @@ const Header = () => (
             return (
               <Fragment>
                 {homeLink}
+                
                 <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
               </Fragment>
             );

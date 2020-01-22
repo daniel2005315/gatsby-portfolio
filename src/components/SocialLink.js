@@ -9,7 +9,7 @@ import 'tippy.js/dist/tippy.css'; // eslint-disable-line
 const IconLink = styled(Link)`
   transition: color 0.5s;
   color: ${props =>
-    props.theme.colors[props.color] || props.theme.colors.primary};
+    props.theme.colors[props.color] || props.theme.colors.backgroundDark};
   text-decoration: none;
 
   &:hover {
@@ -26,7 +26,7 @@ const SocialLink = ({ fontAwesomeIcon, name, url, color }) => (
       rel="noreferrer"
       aria-label={name}
     >
-      <FontAwesomeIcon name={fontAwesomeIcon} />
+      <FontAwesomeIcon name={fontAwesomeIcon}/>
     </IconLink>
   </Tippy>
 );

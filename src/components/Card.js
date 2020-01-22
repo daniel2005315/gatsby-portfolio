@@ -4,7 +4,7 @@ import { Card as CardRebass } from 'rebass';
 export const CardContainer = styled.div`
   display: grid;
   grid-gap: 30px;
-
+  height: 100%;
   grid-template-columns: repeat(
     auto-fill,
     minmax(${props => props.minWidth}, 1fr)

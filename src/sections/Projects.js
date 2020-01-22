@@ -77,6 +77,7 @@ const ImageContainer = styled.div`
   }
 `;
 
+// TODO The following part need improvements
 const ProjectImage = styled(Image)`
   width: ${CARD_HEIGHT};
   height: ${CARD_HEIGHT};
@@ -120,7 +121,7 @@ const Project = ({
             {name}
           </Title>
         </span>
-        <Text width={[1]} style={{ overflow: 'auto' }}>
+        <Text width={[1]} style={{ overflow: 'auto'}}>
           {description}
         </Text>
       </TextContainer>
@@ -138,6 +139,7 @@ const Project = ({
                 name="Check repository"
                 fontAwesomeIcon="github"
                 url={repositoryUrl}
+                color="black"
               />
             </Box>
             <Box mx={1} fontSize={5}>
@@ -145,14 +147,15 @@ const Project = ({
                 name="See project"
                 fontAwesomeIcon="globe"
                 url={projectUrl}
+                color="black"
               />
             </Box>
           </Flex>
-          <ImageSubtitle bg="primary" color="white" y="bottom" x="right" round>
+          <ImageSubtitle bg="primary" color="black" y="bottom" x="right" round>
             {type}
           </ImageSubtitle>
           <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="backgroundDark">{publishedDate}</ImageSubtitle>
+            <ImageSubtitle bg="primaryDark">{publishedDate}</ImageSubtitle>
           </Hide>
         </ProjectTag>
       </ImageContainer>

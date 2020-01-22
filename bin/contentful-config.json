@@ -639,10 +639,10 @@
       },
       "fields": {
         "name": {
-          "en-US": "Mate"
+          "en-US": "Daniel"
         },
         "description": {
-          "en-US": "Gatsby v2 starter to create a top notch portfolio!"
+          "en-US": "Portfolio site of Daniel Leung, a Software Developer with over 2 years of experience, specializing in Java and Javascript"
         },
         "roles": {
           "en-US": [

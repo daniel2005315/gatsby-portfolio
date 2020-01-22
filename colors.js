@@ -1,12 +1,14 @@
 module.exports = {
-  background: '#FFFFFF',
-  backgroundDark: '#f0e6f6',
+  // background: '#FFFFFF',
+  background: '#FFFFF',
+  // backgroundDark: '#1b3661',
+  backgroundDark: 'black',
 
-  primary: '#7c37ad',
-  primaryLight: '#ae66df',
-  primaryDark: '#4b007d',
+  primary: 'white',
+  primaryLight: 'yellow',
+  primaryDark: 'orange',
 
-  secondary: '#ff4081',
-  secondaryLight: '#ff79b0',
-  secondaryDark: '#c60055',
+  secondary: 'purple',
+  secondaryLight: '#22cce3',
+  secondaryDark: 'green',
 };
