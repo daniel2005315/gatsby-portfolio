@@ -10,5 +10,5 @@ module.exports = {
 
   secondary: 'purple',
   secondaryLight: '#22cce3',
-  secondaryDark: 'green',
+  secondaryDark: 'black',
 };

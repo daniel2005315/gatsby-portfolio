@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Image, Text, Flex, Box } from 'rebass';
+import { Image, Text, Flex, Box, Button } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
@@ -10,6 +10,10 @@ import SocialLink from '../components/SocialLink';
 import Triangle from '../components/Triangle';
 import ImageSubtitle from '../components/ImageSubtitle';
 import Hide from '../components/Hide';
+
+import Tippy from '@tippy.js/react';
+
+import ModalCard from '../components/ModalCard';
 
 const Background = () => (
   <div>
@@ -49,7 +53,7 @@ const CARD_HEIGHT = '200px';
 const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
 
 const Title = styled(Text)`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
   display: table;
@@ -71,6 +75,7 @@ const TextContainer = styled.div`
 const ImageContainer = styled.div`
   margin: auto;
   width: ${CARD_HEIGHT};
+  max-height: ${CARD_HEIGHT};
 
   ${MEDIA_QUERY_SMALL} {
     width: calc(${CARD_HEIGHT} / 2);
@@ -96,8 +101,8 @@ const ProjectTag = styled.div`
   position: relative;
   height: ${CARD_HEIGHT};
   top: calc(
-    -${CARD_HEIGHT} - 3.5px
-  ); /*don't know why I have to add 3.5px here ... */
+    -${CARD_HEIGHT} 
+  ); 
 
   ${MEDIA_QUERY_SMALL} {
     top: calc(-${CARD_HEIGHT} - 3.5px + (${CARD_HEIGHT} / 4));
@@ -112,18 +117,25 @@ const Project = ({
   type,
   publishedDate,
   logo,
+  demoUrl,
+  props
 }) => (
-  <Card p={0}>
+  <Fragment>
+  <ModalCard name={name} description={description} demoUrl={demoUrl}>
     <Flex style={{ height: CARD_HEIGHT }}>
       <TextContainer>
+        <Box mx={1} fontSize={5}>
+          <Hide query={MEDIA_QUERY_SMALL}>
+            <ImageSubtitle bg="primaryDark" y="bottom" x="left" round>{publishedDate}</ImageSubtitle>
+          </Hide>
+        </Box>     
+        <Box mx={1} fontSize={5}>
         <span>
           <Title my={2} pb={1}>
             {name}
           </Title>
         </span>
-        <Text width={[1]} style={{ overflow: 'auto'}}>
-          {description}
-        </Text>
+        </Box> 
       </TextContainer>
 
       <ImageContainer>
@@ -151,23 +163,22 @@ const Project = ({
               />
             </Box>
           </Flex>
-          <ImageSubtitle bg="primary" color="black" y="bottom" x="right" round>
+          <ImageSubtitle bg="backgroundDark" color="primary" y="bottom" x="right" round>
             {type}
           </ImageSubtitle>
-          <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="primaryDark">{publishedDate}</ImageSubtitle>
-          </Hide>
         </ProjectTag>
-      </ImageContainer>
+      </ImageContainer> 
     </Flex>
-  </Card>
+  </ModalCard>
+  </Fragment>
 );
 
 Project.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  projectUrl: PropTypes.string.isRequired,
-  repositoryUrl: PropTypes.string.isRequired,
+  projectUrl: PropTypes.string,
+  repositoryUrl: PropTypes.string,
   type: PropTypes.string.isRequired,
   publishedDate: PropTypes.string.isRequired,
   logo: PropTypes.shape({
@@ -176,6 +187,7 @@ Project.propTypes = {
     }),
     title: PropTypes.string,
   }).isRequired,
+  demoUrl: PropTypes.string,
 };
 
 const Projects = () => (
@@ -199,6 +211,7 @@ const Projects = () => (
                   src
                 }
               }
+              demoUrl
             }
           }
         }

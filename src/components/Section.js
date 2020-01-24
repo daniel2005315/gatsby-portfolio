@@ -15,7 +15,7 @@ const SectionContainer = styled.div`
   flex: 0 1 auto;
   flex-direction: column;
   justify-content: center;
-  padding: 5em 1em;
+  padding: 2em 1em;
   scroll-behavior: smooth;
 `;
 
@@ -34,13 +34,13 @@ Container.propTypes = {
   Background: PropTypes.func,
 };
 
-const Header = ({ name, icon = '', label = '' }) => (
+const Header = ({ name, icon = '', label = '', isAbout}) => (
   <Slide left>
-    <Heading color="secondaryDark" mb={4}>
+    <Heading fontSize={[ 4, 5, 6 ]} color="secondaryDark" ml={1} pl={3}>
       <LinkAnimated selected>
         {name}
         {icon && (
-          <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+          <span role="img" aria-label={label} style={{ marginLeft: '10px'}}>
             {icon}
           </span>
         )}

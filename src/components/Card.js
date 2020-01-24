@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Card as CardRebass } from 'rebass';
+import { Fragment } from 'react';
 
 export const CardContainer = styled.div`
   display: grid;
@@ -10,6 +11,7 @@ export const CardContainer = styled.div`
     minmax(${props => props.minWidth}, 1fr)
   );
   justify-items: center;
+  padding-top:40px;
 
   @media only screen and (max-width: 400px) {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

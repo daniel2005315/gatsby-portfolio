@@ -33,6 +33,13 @@ const plugins = [
       accessToken: ACCESS_TOKEN,
     },
   },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `src`,
+      path: `${__dirname}/src/components/File`,
+    },
+  },
   'gatsby-transformer-remark',
   'gatsby-plugin-offline',
 ];

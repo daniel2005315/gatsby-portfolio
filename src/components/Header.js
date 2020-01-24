@@ -13,7 +13,6 @@ const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
     background: ${props => props.theme.colors.primaryDark};
   }
-
   position: absolute;
   width: 100%;
 `;
