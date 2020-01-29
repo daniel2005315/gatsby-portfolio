@@ -1,0 +1,15 @@
+<svg width="583" height="161" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="163" width="585" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_2" height="122" width="531" y="19.78125" x="26.5" stroke-width="6.5" stroke="#ffffff" fill="none"/>
+  <text stroke="#000" transform="matrix(3.4985197393537955,0,0,3.309028015235298,-223.26941455033509,-247.3146330041805) " xml:space="preserve" text-anchor="start" font-family="Junction, sans-serif" font-size="24" id="svg_1" y="106.907083" x="76.191557" stroke-width="0" fill="#ffffff">Daniel Leung</text>
+ </g>
+</svg>

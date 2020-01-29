@@ -4,6 +4,8 @@ import ReactModal from 'react-aria-modal'
 import styled from 'styled-components';
 import { Image, Text, Flex, Box, Button } from 'rebass';
 
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'; 
+
 const customStyles = {
     margin: '2em',
     padding: '3em',
@@ -70,40 +72,45 @@ class ModalCard extends React.Component  {
                       </Flex>
                     </Flex>
 
-                    <Text width={[1]} style={{ overflow: 'auto'}}>
-                        {this.props.description}
-                    </Text>
-                    {console.log(this.props.demoUrl)} 
-                    {this.props.demoUrl!==null? 
-                    <Box
-                      sx={{
-                        width: '100%',
-                        height: 0,
-                        paddingBottom: (900 / 16) + '%',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        '& > iframe': {
-                          position: 'absolute',
-                          width: '100%',
-                          height: '100%',
-                          top: 0,
-                          bottom: 0,
-                          left: 0,
-                          border: 0
-                        }
-                      }}>
-                      <iframe
-                        width='560'
-                        height='315'
-                        src={this.props.demoUrl}
-                        frameBorder='0'
-                        allowFullScreen
-                      />
-                    </Box> : ""
-                    }
+                      {this.props.demoUrl!==null? 
+                      <Box
+                        sx={{
+                          height: 0,
+                          paddingBottom: (900 / 16) + '%',
+                          position: 'relative',
+                          overflow: 'hidden',
+                          '& > iframe': {
+                            position: 'absolute',
+                            width: '100%',
+                            height: '100%',
+                            top: 0,
+                            bottom: 0,
+                            left: 0,
+                            border: 0
+                          }
+                        }}>
+                        <iframe
+                          width='100%'
+                          height='315px'
+                          src={this.props.demoUrl}
+                          frameBorder='0'
+                          allowFullScreen
+                        />
+                      </Box> : ""
+                      }
+                    {
+                      this.props.projectDetails!==null?
+                      documentToReactComponents(this.props.projectDetails.json):""
+                    }                    
                     <Flex alignItems='center'>
-
-                          <button id="modal-close" onClick={this.handleModalClose}>Cool</button>
+                      <Box px = {3} width={1} mx='auto'  verticalAlign='center'>
+                          <Button 
+                            id="modal-close" 
+                            bg="primaryDark"
+                            onClick={this.handleModalClose}>
+                            Cool!
+                          </Button>
+                        </Box>
                     </Flex>
                     
 

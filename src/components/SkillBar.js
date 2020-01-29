@@ -14,7 +14,7 @@ const StyledSkill = styled.ul`
     background-color: #888;
     color: #fff;
     margin: 10px 0;
-    transition: width 500ms ease-in-out;
+    transition: width 1000ms ease-in-out;
     .collapsed & {
         width: 0 !important;
     }

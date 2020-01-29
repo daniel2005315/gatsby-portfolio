@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { SectionLinks } from 'react-scroll-section';
 import Fade from 'react-reveal/Fade';
 import RouteLink from './RouteLink';
-import Logo from './Logo/Portfolio.svg';
+import Logo from './Logo/daniel_leung.svg';
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
@@ -50,13 +50,13 @@ const Header = () => (
             const homeLink = home && (
               <Image
                 src={Logo}
-                width="50px"
+                width="150px"
                 alt="Portfolio Logo"
                 onClick={home.onClick}
                 style={{
                   cursor: 'pointer',
                 }}
-              />              
+              />             
             );
             const navLinks = links.map(({ name, value }) => (
               <RouteLink

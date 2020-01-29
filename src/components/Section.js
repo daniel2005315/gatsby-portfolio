@@ -34,9 +34,9 @@ Container.propTypes = {
   Background: PropTypes.func,
 };
 
-const Header = ({ name, icon = '', label = '', isAbout}) => (
+const Header = ({ name, icon = '', label = '', pt='0'}) => (
   <Slide left>
-    <Heading fontSize={[ 4, 5, 6 ]} color="secondaryDark" ml={1} pl={3}>
+    <Heading fontSize={[ 4, 5, 6 ]} color="secondaryDark" ml={1} pl={3} pt={pt}>
       <LinkAnimated selected>
         {name}
         {icon && (
@@ -45,7 +45,7 @@ const Header = ({ name, icon = '', label = '', isAbout}) => (
           </span>
         )}
       </LinkAnimated>
-    </Heading>
+      </Heading>
   </Slide>
 );
 

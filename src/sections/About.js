@@ -63,8 +63,7 @@ const AboutHeader = styled(Section.Header)`
 
 const About = () => (
   <Section.Container id="about" Background={Background}>
-    <br></br><br></br><br></br>
-    <Section.Header name="About me" icon="🙋‍♂️" label="person" />
+    <Section.Header name="About me" icon="🙋‍♂️" label="person" pt={[4,5, 6]}/>
     <StaticQuery
       query={graphql`
         query AboutMeQuery {
@@ -92,8 +91,8 @@ const About = () => (
         return (
           
           <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-            <br></br>
-            <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
+            <br></br><br></br>
+            <Box width={[1, 1, 4 / 6]} px={4} py={[3,4]}>
               <Fade bottom>
                 <ReactMarkdown
                   source={aboutMe.childMarkdownRemark.rawMarkdownBody}
@@ -119,9 +118,9 @@ const About = () => (
                 />
               </Fade>
             </Box> 
-            <SkillBar hue="36" saturation="100" skills={SKILLS} />
+            <SkillBar hue="36" saturation="100" skills={SKILLS} />            
           </Flex>
-          
+
 
         );
       }}

@@ -13,7 +13,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="primary"
+      color="primaryDark"
       height={['25vh', '35vh']}
       width={['75vw', '60vw']}
       invertX
@@ -40,7 +40,7 @@ const NotFoundPage = () => (
         >
           404
         </Heading>
-        <Heading color="secondary" fontSize={['4rem', '5rem', '6rem']} as="h2">
+        <Heading color="black" fontSize={['4rem', '5rem', '6rem']} as="h2">
           There isn&apos;t anything here
         </Heading>
       </Box>

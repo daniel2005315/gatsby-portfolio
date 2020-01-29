@@ -64,7 +64,6 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 100%;
   width: calc(100% - ${CARD_HEIGHT});
 
   ${MEDIA_QUERY_SMALL} {
@@ -82,7 +81,6 @@ const ImageContainer = styled.div`
   }
 `;
 
-// TODO The following part need improvements
 const ProjectImage = styled(Image)`
   width: ${CARD_HEIGHT};
   height: ${CARD_HEIGHT};
@@ -113,6 +111,7 @@ const Project = ({
   name,
   description,
   projectUrl,
+  projectDetails,
   repositoryUrl,
   type,
   publishedDate,
@@ -121,7 +120,7 @@ const Project = ({
   props
 }) => (
   <Fragment>
-  <ModalCard name={name} description={description} demoUrl={demoUrl}>
+  <ModalCard name={name} description={description} demoUrl={demoUrl} projectDetails={projectDetails}>
     <Flex style={{ height: CARD_HEIGHT }}>
       <TextContainer>
         <Box mx={1} fontSize={5}>
@@ -134,8 +133,11 @@ const Project = ({
           <Title my={2} pb={1}>
             {name}
           </Title>
-        </span>
-        </Box> 
+        </span>        
+        </Box>
+        <Text width={[1]} pl={4}style={{ overflow: 'auto' }}>
+          {description}
+        </Text> 
       </TextContainer>
 
       <ImageContainer>
@@ -177,6 +179,7 @@ Project.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  projectDetails: PropTypes.object,
   projectUrl: PropTypes.string,
   repositoryUrl: PropTypes.string,
   type: PropTypes.string.isRequired,
@@ -201,6 +204,9 @@ const Projects = () => (
               id
               name
               description
+              projectDetails {
+                json
+              }
               projectUrl
               repositoryUrl
               publishedDate(formatString: "YYYY")
@@ -218,7 +224,7 @@ const Projects = () => (
       `}
       render={({ contentfulAbout }) => (
         <CardContainer minWidth="350px">
-          {contentfulAbout.projects.map((p, i) => (
+          {contentfulAbout.projects.map((p, i) => (            
             <Fade bottom delay={i * 200} key={p.id}>
               <Project {...p} />
             </Fade>
