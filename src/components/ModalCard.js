@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import Card from './Card'
 import ReactModal from 'react-aria-modal'
-import styled from 'styled-components';
-import { Image, Text, Flex, Box, Button } from 'rebass';
+import { Flex, Box, Button } from 'rebass';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'; 
 
@@ -25,11 +24,9 @@ class ModalCard extends React.Component  {
       this.setState(prevState => ({
         showModal: !prevState.showModal
       }));
-      console.log(this.state);
     }
 
     handleModalClose = event => {
-      // console.log('handleModalOpen: ', event);
       this.setState({ showModal: false })
     }
 
@@ -42,9 +39,7 @@ class ModalCard extends React.Component  {
     }
   
     render() {
-      const {children} = this.props;
       return (        
-          
           <Fragment>
             <Card {... this.props} onClick={this.toggleModal}/>
             <ReactModal
@@ -52,7 +47,6 @@ class ModalCard extends React.Component  {
                 onEnter={this.onModalEnter}
                 onExit={this.handleModalClose}
                 titleText="Project Modal"
-                // initialFocus="#modal-close"
                 focusDialog={true}
                 underlayStyle={{ paddingTop: '2em'}}
                 dialogStyle={customStyles}
@@ -63,16 +57,8 @@ class ModalCard extends React.Component  {
                       <Box width={4/5}>
                         <h2>{this.props.name}</h2>
                       </Box>
-                      <Flex
-                        style={{
-                          float: 'right',
-                        }}
-                      >                      
-                        
-                      </Flex>
                     </Flex>
-
-                      {this.props.demoUrl!==null? 
+                    {this.props.demoUrl!==null? 
                       <Box
                         sx={{
                           height: 0,
@@ -97,13 +83,13 @@ class ModalCard extends React.Component  {
                           allowFullScreen
                         />
                       </Box> : ""
-                      }
+                    }
                     {
                       this.props.projectDetails!==null?
                       documentToReactComponents(this.props.projectDetails.json):""
                     }                    
                     <Flex alignItems='center'>
-                      <Box px = {3} width={1} mx='auto'  verticalAlign='center'>
+                      <Box px = {3} width={1} mx='auto'>
                           <Button 
                             id="modal-close" 
                             bg="primaryDark"
@@ -112,11 +98,6 @@ class ModalCard extends React.Component  {
                           </Button>
                         </Box>
                     </Flex>
-                    
-
-
-
-
                   </div>
               </div>
             </ReactModal>

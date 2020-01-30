@@ -25,10 +25,10 @@ const StyledLink = styled.a`
   }
 
   &:hover {
-    color: white;
+    color: ${props => props.theme.colors.backgroundDark};
 
     &::after {
-      height: 110%;
+      height: 85%;
       width: 110%;
     }
   }

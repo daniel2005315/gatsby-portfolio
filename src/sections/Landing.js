@@ -1,22 +1,17 @@
 import React, { Fragment } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { Heading, Flex, Box, Text } from 'rebass';
-
 import Typed from 'react-typed';
 import Particles from "react-particles-js"
-
-import TextLoop from 'react-text-loop';
 import { SectionLink } from 'react-scroll-section';
+
 import Section from '../components/Section';
 import SocialLink from '../components/SocialLink';
 import MouseIcon from '../components/MouseIcon';
 import Triangle from '../components/Triangle';
 
-// import Triangle from '../components/Triangle';
-
 const Background = () => (
-  <div>
-    
+  <div>    
       <Particles 
           params={{
             "fps_limit": 28,
@@ -62,48 +57,8 @@ const Background = () => (
             width={['60vw', '60vw']}
             invertX
           />
-
-          {/*
-      <div
-        className="container"
-        style={{ position: `relative`, zIndex: 1 }}
-      >        
-      </div>
-      */}
-      </div>
+    </div>
 )
-/*
-const Background = () => (
-  <div>
-    <Triangle
-      color="backgroundDark"
-      height={['35vh', '80vh']}
-      width={['95vw', '60vw']}
-    />
-
-    <Triangle
-      color="secondary"
-      height={['38vh', '80vh']}
-      width={['50vw', '35vw']}
-    />
-
-    <Triangle
-      color="primaryDark"
-      height={['25vh', '35vh']}
-      width={['75vw', '60vw']}
-      invertX
-    />
-
-    <Triangle
-      color="backgroundDark"
-      height={['20vh', '20vh']}
-      width={['100vw', '100vw']}
-      invertX
-      invertY
-    />
-  </div>
-);
-*/
 
 const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
 
@@ -130,9 +85,7 @@ const LandingPage = () => (
         }
       `}
       render={({ contentfulAbout, site }) => {
-        const { name, socialLinks, roles } = contentfulAbout;
-        const { deterministicBehaviour } = site.siteMetadata;
-
+        const { name, socialLinks } = contentfulAbout;
         return (
           <Fragment>
             <Heading

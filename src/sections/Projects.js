@@ -1,18 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Image, Text, Flex, Box, Button } from 'rebass';
+import { Image, Text, Flex, Box } from 'rebass';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
+import Tippy from '@tippy.js/react';
 import Section from '../components/Section';
-import { CardContainer, Card } from '../components/Card';
+import { CardContainer } from '../components/Card';
 import SocialLink from '../components/SocialLink';
 import Triangle from '../components/Triangle';
 import ImageSubtitle from '../components/ImageSubtitle';
 import Hide from '../components/Hide';
-
-import Tippy from '@tippy.js/react';
-
 import ModalCard from '../components/ModalCard';
 
 const Background = () => (
@@ -116,63 +114,67 @@ const Project = ({
   type,
   publishedDate,
   logo,
-  demoUrl,
-  props
-}) => (
-  <Fragment>
-  <ModalCard name={name} description={description} demoUrl={demoUrl} projectDetails={projectDetails}>
-    <Flex style={{ height: CARD_HEIGHT }}>
-      <TextContainer>
-        <Box mx={1} fontSize={5}>
-          <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="primaryDark" y="bottom" x="left" round>{publishedDate}</ImageSubtitle>
-          </Hide>
-        </Box>     
-        <Box mx={1} fontSize={5}>
-        <span>
-          <Title my={2} pb={1}>
-            {name}
-          </Title>
-        </span>        
-        </Box>
-        <Text width={[1]} pl={4}style={{ overflow: 'auto' }}>
-          {description}
-        </Text> 
-      </TextContainer>
-
-      <ImageContainer>
-        <ProjectImage src={logo.image.src} alt={logo.title} />
-        <ProjectTag>
-          <Flex
-            style={{
-              float: 'right',
-            }}
-          >
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="Check repository"
-                fontAwesomeIcon="github"
-                url={repositoryUrl}
-                color="black"
-              />
-            </Box>
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="See project"
-                fontAwesomeIcon="globe"
-                url={projectUrl}
-                color="black"
-              />
-            </Box>
-          </Flex>
-          <ImageSubtitle bg="backgroundDark" color="primary" y="bottom" x="right" round>
-            {type}
-          </ImageSubtitle>
-        </ProjectTag>
-      </ImageContainer> 
-    </Flex>
-  </ModalCard>
-  </Fragment>
+  demoUrl
+}) => (  
+  <Fragment>  
+    <ModalCard name={name} description={description} demoUrl={demoUrl} projectDetails={projectDetails}>
+    <Tippy content="Click for more details!" placement="top" trigger="mouseenter" arrow={false}>
+      <Flex style={{ height: CARD_HEIGHT }}>
+        <TextContainer>
+          <Box mx={1} fontSize={5}>
+            <Hide query={MEDIA_QUERY_SMALL}>
+              <ImageSubtitle bg="primaryDark" y="bottom" x="left" round>{publishedDate}</ImageSubtitle>
+            </Hide>
+          </Box>     
+          <Box mx={1} fontSize={5}>
+          <span>
+            <Title my={2} pb={1}>
+              {name}
+            </Title>
+          </span>        
+          </Box>
+          <Text width={[1]} pl={4}style={{ overflow: 'auto' }}>
+            {description}
+          </Text> 
+        </TextContainer>
+        <ImageContainer>
+          <ProjectImage src={logo.image.src} alt={logo.title} />
+          <ProjectTag>
+            <Flex
+              style={{
+                float: 'right',
+              }}
+            >
+              {repositoryUrl!==null?
+                <Box mx={1} fontSize={5}>
+                  <SocialLink
+                    name="Check repository"
+                    fontAwesomeIcon="github"
+                    url={repositoryUrl}
+                    color="black"
+                  />
+                </Box> : ""
+              }
+              {projectUrl!==null?
+                <Box mx={1} fontSize={5}>
+                  <SocialLink
+                    name="See project"
+                    fontAwesomeIcon="globe"
+                    url={projectUrl}
+                    color="black"
+                  />
+                </Box> : ""
+              }
+            </Flex>
+            <ImageSubtitle bg="backgroundDark" color="primary" y="bottom" x="right" round>
+              {type}
+            </ImageSubtitle>
+          </ProjectTag>
+        </ImageContainer> 
+      </Flex>
+      </Tippy>
+    </ModalCard>    
+  </Fragment>  
 );
 
 Project.propTypes = {
@@ -195,7 +197,7 @@ Project.propTypes = {
 
 const Projects = () => (
   <Section.Container id="projects" Background={Background}>
-    <Section.Header name="Projects" icon="💻" label="notebook" />
+    <Section.Header name="Projects" />
     <StaticQuery
       query={graphql`
         query ProjectsQuery {

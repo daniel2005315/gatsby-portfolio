@@ -69,8 +69,7 @@ const Header = () => (
 
             return (
               <Fragment>
-                {homeLink}
-                
+                {homeLink}                
                 <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
               </Fragment>
             );

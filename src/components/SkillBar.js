@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import Fade from 'react-reveal/Fade';
 import VisibilitySensor from 'react-visibility-sensor'
-
 
 const StyledSkill = styled.ul`
     margin: 0 0 30px 0;

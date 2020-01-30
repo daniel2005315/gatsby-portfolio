@@ -7,12 +7,11 @@ import Fade from 'react-reveal/Fade';
 import Section from '../components/Section';
 import Triangle from '../components/Triangle';
 import markdownRenderer from '../components/MarkdownRenderer';
-import Hide from '../components/Hide';
 import SkillBar from '../components/SkillBar';
 
 const SKILLS = [
   {type: "Java", level: 99},
-  {type: "JavaScript", level: 87},
+  {type: "JavaScript", level: 90},
   {type: "C#", level: 70},
   {type: "Python", level: 50},
   {type: "React.js", level: 70},
@@ -42,8 +41,6 @@ const Background = () => (
   </div>
 );
 
-const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
-
 const ProfilePicture = styled(Image)`
   border-radius: 50%;
   transition: all 0.25s ease-out;
@@ -57,13 +54,9 @@ const CvButton = styled(Button)`
   background-color: orange;
 `;
 
-const AboutHeader = styled(Section.Header)`
-  padding-top: 64px;
-`;
-
 const About = () => (
   <Section.Container id="about" Background={Background}>
-    <Section.Header name="About me" icon="🙋‍♂️" label="person" pt={[4,5, 6]}/>
+    <Section.Header name="About me" pt={[4,5,6]}/>
     <StaticQuery
       query={graphql`
         query AboutMeQuery {
@@ -91,7 +84,6 @@ const About = () => (
         return (
           
           <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-            <br></br><br></br>
             <Box width={[1, 1, 4 / 6]} px={4} py={[3,4]}>
               <Fade bottom>
                 <ReactMarkdown
@@ -103,7 +95,6 @@ const About = () => (
                 </Link>              
               </Fade>
             </Box>
-
             
             <Box
               width={[1, 1, 2 / 6]}
@@ -120,7 +111,6 @@ const About = () => (
             </Box> 
             <SkillBar hue="36" saturation="100" skills={SKILLS} />            
           </Flex>
-
 
         );
       }}
